@@ -1,0 +1,152 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="@drawable/bg"
+    tools:context="com.swssm.oscilloid.MainActivity" >
+
+	<RelativeLayout
+	    android:id="@+id/Waveform"
+		android:layout_width="wrap_content"
+    	android:layout_height="wrap_content" >
+    	<com.swssm.oscilloid.WaveView android:id="@+id/WaveformArea"
+			android:layout_width="1204px"
+			android:layout_height="974px" />
+		<TextView
+			android:id="@+id/ch_info"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:textSize="14dp"
+			android:textColor="#FFFF00"
+			android:text="CH1 2.00 V" />
+		<TextView 
+			android:id="@+id/freq_info"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:layout_centerHorizontal="true"
+			android:textColor="#FFFFFF"
+			android:textSize="14dp"
+			android:text="M 10.0 us" />
+		<TextView 
+			android:id="@+id/freq_info_last"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:layout_alignRight="@+id/WaveformArea"
+			android:layout_alignEnd="@+id/WaveformArea"
+			android:textSize="14dp"
+			android:text="" />
+	</RelativeLayout>
+	<RelativeLayout 
+		android:id="@+id/main_area"
+		android:layout_toRightOf="@+id/Waveform"
+		android:layout_toEndOf="@+id/Waveform"
+	    android:layout_width="wrap_content"
+    	android:layout_height="wrap_content" >
+		<LinearLayout 
+			android:id="@+id/linearLayout1"
+			android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal" >
+    	<Button
+    	    android:id="@+id/autoset_button"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="Auto Set"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			android:gravity="center"
+			android:background="@drawable/basic_btn"
+    	    android:layout_toRightOf="@+id/WaveformArea"
+		    android:layout_toEndOf="@+id/WaveformArea" />
+    	<Button
+    	    android:id="@+id/run_stop_button"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="Stop"
+			android:gravity="center"
+			android:background="@drawable/basic_btn"
+    	    android:layout_toRightOf="@+id/autoset_button"
+    	    android:layout_toEndOf="@+id/autoset_button" />
+    	</LinearLayout>
+	</RelativeLayout>
+	<RelativeLayout 
+	    android:id="@+id/func_area"
+	    android:layout_toRightOf="@+id/Waveform"
+		android:layout_toEndOf="@+id/Waveform"
+		android:layout_below="@+id/main_area"
+		android:layout_marginLeft="10dp"
+		android:layout_marginTop="15dp"
+	    android:layout_width="wrap_content"
+    	android:layout_height="wrap_content" >
+		<Button
+		    android:id="@+id/func1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:text="Horizontal"
+			android:layout_centerHorizontal="true"
+			android:textSize="18dp"
+			android:background="@drawable/basic_btn" />	
+		<Button
+		    android:id="@+id/func2"
+		    android:layout_below="@+id/func1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:textStyle="bold"
+			android:text="Position"
+			android:layout_centerHorizontal="true"
+			android:textSize="18dp"
+			android:background="@drawable/basic_btn" />
+		<Button
+		    android:id="@+id/func3"
+		    android:layout_below="@+id/func2"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:textStyle="bold"
+			android:text="Trigger"
+			android:layout_centerHorizontal="true"
+			android:textSize="18dp"
+			android:background="@drawable/basic_btn" />	
+	</RelativeLayout>
+	<RelativeLayout 
+		android:id="@+id/jogarea"
+		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+	    android:layout_toRightOf="@+id/Waveform"
+		android:layout_toEndOf="@+id/Waveform"
+		android:layout_below="@+id/func_area"
+		android:layout_marginTop="10dp" >
+		<com.swssm.oscilloid.RotaryKnobView
+	    	android:id="@+id/jogView"
+	    	android:layout_width="400px"
+	    	android:layout_height="400px"
+	    	android:layout_centerHorizontal="true" />
+	</RelativeLayout>
+	<RelativeLayout 
+		android:id="@+id/textarea"
+		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+	    android:layout_toRightOf="@+id/Waveform"
+		android:layout_toEndOf="@+id/Waveform"
+		android:layout_below="@+id/jogarea"
+		android:layout_marginTop="5dp" >
+		
+		<TextView
+	    	android:id="@+id/appnametext"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:textStyle="bold"
+	    	android:text="Oscilloid"
+	    	android:layout_centerHorizontal="true" />
+	</RelativeLayout>
+</RelativeLayout>
